@@ -600,15 +600,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Update Terminal to Log Commands
-    // (Inside the terminal keyboard listener)
     if (terminalInput) {
+        const commands = {
+            'help': 'Available commands: whois, skills, experience, clear, contact, status',
+            'whois': 'Xivam - IT Specialist & Marketing Professional with 6+ years experience.',
+            'skills': 'IT Systems, AutoCAD, Photoshop, Excel Automation, Web Maintenance.',
+            'experience': 'Technical tenure since Jan 2, 2020 at current company.',
+            'contact': 'Email: mavimabilik22@gmail.com | Location: Philippines',
+            'status': 'Checking system hits...',
+            'clear': 'CLEAR'
+        };
+
         terminalInput.addEventListener('keydown', async (e) => {
             if (e.key === 'Enter') {
                 const input = terminalInput.value.toLowerCase().trim();
-                if(input !== '') {
-                    sendTelegramAlert(`⌨️ *Terminal Command:* \`${input}\``);
-                }
-                // ... rest of the existing terminal logic
+                if(input === '') return;
+
+                // Send Alert to Telegram
+                sendTelegramAlert(`⌨️ *Terminal Command:* \`${input}\``);
+
+                let response = commands[input] || `Command not found: ${input}. Type 'help' for available commands.`;
                 
                 if (input === 'status') {
                     const views = await totalViews;
