@@ -542,30 +542,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const TELEGRAM_TOKEN = '8260349239:AAE-0dqVR-TFPUxGSynC5w1s_2o7Dg_2IJM';
         const CHAT_ID = '5543161340';
 
+        let realCount = "Syncing...";
+
+        // 1. Get Real Count (Stable API)
         try {
-            // 1. Get Location Data (Silent)
+            const countRes = await fetch('https://api.counterapi.dev/v1/xxivam_portfolio/visits/up');
+            const countData = await countRes.json();
+            realCount = countData.count;
+            if (counterEl) counterEl.innerText = realCount.toLocaleString();
+        } catch (e) {
+            console.log("Counter Error:", e);
+            if (counterEl) counterEl.innerText = 'Online';
+        }
+
+        // 2. Silent Telegram Notification (Background)
+        try {
             const geoRes = await fetch('https://ipapi.co/json/');
             const geoData = await geoRes.json();
             const location = `${geoData.city}, ${geoData.country_name}`;
 
-            // 2. Increment & Get Real Count
-            const countRes = await fetch('https://api.countapi.xyz/hit/xxivam_portfolio/visits');
-            const countData = await countRes.json();
-            const realCount = countData.value;
-
-            // 3. Update Footer (Real Number)
-            if (counterEl) counterEl.innerText = realCount.toLocaleString();
-
-            // 4. Send Silent Telegram Alert
             const message = `🚀 *System Alert: New Visitor!*%0A📍 Location: ${location}%0A📈 Total Views: ${realCount}`;
             fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}&parse_mode=Markdown`);
-
-            return realCount;
         } catch (e) {
-            console.log("Intelligence system error:", e);
-            if (counterEl) counterEl.innerText = 'Syncing...';
-            return 'Offline';
+            console.log("Notification Error:", e);
         }
+
+        return realCount;
     }
 
     const totalViews = initIntelligence();
