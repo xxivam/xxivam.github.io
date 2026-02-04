@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mavi | IT & Marketing Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Print-Only Resume Header -->
+    <div class="print-header">
+        <div class="print-header-content">
+            <img src="pic.png" alt="Xivam" class="print-photo">
+            <div class="print-title-area">
+                <h1>XIVAM</h1>
+                <h3>IT Specialist & Marketing Professional</h3>
+                <div class="print-contact-info">
+                    <span><i class="fas fa-envelope"></i> mavimabilik22@gmail.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Philippines</span>
+                    <span><i class="fas fa-globe"></i> xxivam.github.io</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Parallax Background Elements -->
+    <div class="parallax-bg">
+        <div class="p-shape s1"></div>
+        <div class="p-shape s2"></div>
+        <div class="p-shape s3"></div>
+    </div>
+
+    <!-- Unique Neural Preloader -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-logo">MAVI<span>.</span></div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-status">INITIALIZING SYSTEMS...</div>
+        </div>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">MAVI<span>.</span></div>
+            <div class="nav-right">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Work</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="theme-toggle" id="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">System Status: Active</div>
+                    <h2 class="hero-greet">Hello, I'm</h2>
+                    <h1 class="hero-name" data-text="MAVI">MAVI<span>.</span></h1>
+                    <div class="type-container">
+                        <span class="type-text"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-desc">Bridging the gap between IT systems and creative marketing since 2020.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn primary">Launch Projects</a>
+                        <a href="resume.pdf" class="btn secondary" download><i class="fas fa-download"></i> Get Resume</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="parallax-wrapper">
+                        <div class="layer layer-bg"></div>
+                        <div class="layer layer-img">
+                            <img src="pic.png" alt="Mavi">
+                        </div>
+                        <div class="layer-overlay"></div>
+                        <!-- Floating Tech Tags -->
+                        <div class="floating-tag t1">AutoCAD</div>
+                        <div class="floating-tag t2">Systems</div>
+                        <div class="floating-tag t3">Marketing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-header-text">
+                <h3 class="mantra">Bridging Technical Precision with Creative Vision</h3>
+                <p>A 2-year IT graduate from TESDA who transformed into a multi-disciplinary professional through relentless self-study. Since 2020, I have been the "Swiss Army Knife" of my company—solving complex technical problems while driving marketing success.</p>
+            </div>
+            
+            <div class="about-pillars">
+                <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-microchip"></i></div>
+                    <h4>The Automator</h4>
+                    <p>Transforming manual workflows into efficient systems using advanced Excel macros and IT infrastructure.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h4>The Architect</h4>
+                    <p>Drafting precision shopdrawings in AutoCAD and building reliable internal company systems from scratch.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon"><i class="fas fa-ad"></i></div>
+                    <h4>The Marketer</h4>
+                    <p>Winning public biddings and creating high-end brochures using Photoshop and strategic technical biddings.</p>
+                </div>
+            </div>
+
+            <div class="about-stats-mini">
+                <div class="mini-stat"><strong>Start Date:</strong> Jan 2, 2020</div>
+                <div class="mini-stat"><strong>Education:</strong> TESDA (IT)</div>
+                <div class="mini-stat"><strong>Focus:</strong> Self-Study Expert</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <div class="section-header-flex">
+                <h2 class="section-title">My Resume</h2>
+                <button class="btn secondary small-btn" onclick="window.print()"><i class="fas fa-print"></i> Print Version</button>
+            </div>
+            <div class="resume-grid">
+                <div class="resume-column">
+                    <h3 class="resume-header"><i class="fas fa-briefcase"></i> Experience</h3>
+                    <div class="resume-item">
+                        <span class="date">Jan 2020 - Present</span>
+                        <h4>IT & Marketing Specialist</h4>
+                        <p>Leading internal system development, web maintenance, and high-value marketing biddings.</p>
+                    </div>
+                    <div class="resume-item">
+                        <span class="date">Design Specialist</span>
+                        <h4>Technical Drafting</h4>
+                        <p>Creating professional shopdrawings in AutoCAD and marketing assets in Photoshop.</p>
+                    </div>
+                </div>
+                <div class="resume-column">
+                    <h3 class="resume-header"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="resume-item">
+                        <span class="date">TESDA Graduate</span>
+                        <h4>Information Technology</h4>
+                        <p>Foundational 2-year technical course specializing in computer systems.</p>
+                    </div>
+                    <div class="resume-item">
+                        <span class="date">Lifelong Learner</span>
+                        <h4>Self-Study Specialist</h4>
+                        <p>Mastered AutoCAD, Photoshop, and Web Dev through independent exploration.</p>
+                    </div>
+
+                    <!-- Print-Only Skills Sidebar -->
+                    <div class="print-skills">
+                        <h3 class="section-title">Technical Skills</h3>
+                        <div class="skills-container">
+                            <div class="skill-bar-item">
+                                <div class="skill-info"><span class="skill-name">MS Office / Excel</span><span class="skill-percentage">95%</span></div>
+                                <div class="progress-line"><span style="width: 95%; --p-width: 95%"></span></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-info"><span class="skill-name">System Building</span><span class="skill-percentage">90%</span></div>
+                                <div class="progress-line"><span style="width: 90%; --p-width: 90%"></span></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-info"><span class="skill-name">AutoCAD</span><span class="skill-percentage">85%</span></div>
+                                <div class="progress-line"><span style="width: 85%; --p-width: 85%"></span></div>
+                            </div>
+                            <div class="skill-bar-item">
+                                <div class="skill-info"><span class="skill-name">Photoshop</span><span class="skill-percentage">88%</span></div>
+                                <div class="progress-line"><span style="width: 88%; --p-width: 88%"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Proficiency</h2>
+            <div class="skills-container">
+                <div class="skill-bar-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Excel Automation / MS Office</span>
+                        <span class="skill-percentage" data-target="95">0%</span>
+                    </div>
+                    <div class="progress-line"><span style="width: 0; --p-width: 95%" data-width="95%"></span></div>
+                    <div class="expertise-tags">
+                        <span class="tag">VBA</span>
+                        <span class="tag">Macros</span>
+                        <span class="tag">Power Query</span>
+                    </div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-info">
+                        <span class="skill-name">System Building / IT Infrastructure</span>
+                        <span class="skill-percentage" data-target="90">0%</span>
+                    </div>
+                    <div class="progress-line"><span style="width: 0; --p-width: 90%" data-width="90%"></span></div>
+                    <div class="expertise-tags">
+                        <span class="tag">Internal Systems</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">Troubleshooting</span>
+                    </div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-info">
+                        <span class="skill-name">AutoCAD (Shopdrawings)</span>
+                        <span class="skill-percentage" data-target="85">0%</span>
+                    </div>
+                    <div class="progress-line"><span style="width: 0; --p-width: 85%" data-width="85%"></span></div>
+                    <div class="expertise-tags">
+                        <span class="tag">2D Drafting</span>
+                        <span class="tag">Technical Layouts</span>
+                    </div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Photoshop (Marketing Design)</span>
+                        <span class="skill-percentage" data-target="88">0%</span>
+                    </div>
+                    <div class="progress-line"><span style="width: 0; --p-width: 88%" data-width="88%"></span></div>
+                    <div class="expertise-tags">
+                        <span class="tag">Brochures</span>
+                        <span class="tag">Photo Editing</span>
+                        <span class="tag">Branding</span>
+                    </div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Web Maintenance (HTML/CSS/JS)</span>
+                        <span class="skill-percentage" data-target="80">0%</span>
+                    </div>
+                    <div class="progress-line"><span style="width: 0; --p-width: 80%" data-width="80%"></span></div>
+                    <div class="expertise-tags">
+                        <span class="tag">Responsive Design</span>
+                        <span class="tag">Site Maintenance</span>
+                    </div>
+                </div>
+                <div class="skill-bar-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Public biddings & Quotations</span>
+                        <span class="skill-percentage" data-target="92">0%</span>
+                    </div>
+                    <div class="progress-line"><span style="width: 0; --p-width: 92%" data-width="92%"></span></div>
+                    <div class="expertise-tags">
+                        <span class="tag">Legal Documentation</span>
+                        <span class="tag">Cost Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="comparison-container">
+                <h3 class="comparison-title">AutoCAD Mastery: From Concept to Reality</h3>
+                <div class="comparison-slider">
+                    <div class="img background-img">
+                        <img src="https://images.unsplash.com/photo-1503387762-592dee58c160?q=80&w=2000&auto=format&fit=crop" alt="Draft">
+                        <div class="label">Rough Draft</div>
+                    </div>
+                    <div class="img foreground-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2000&auto=format&fit=crop" alt="Final Shopdrawing">
+                        <div class="label">Final AutoCAD</div>
+                    </div>
+                    <input type="range" min="1" max="100" value="50" class="slider" id="compare-slider">
+                    <div class="slider-button"></div>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=2070&auto=format&fit=crop" alt="AutoCAD">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <h4>Technical Drafting</h4>
+                                <p>Challenge: High-precision shopdrawings required for complex bidding.<br>Result: 100% accuracy & successful bid win.</p>
+                                <a href="#" class="project-btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AutoCAD Shopdrawings</h3>
+                        <p>Drafting and design for technical infrastructure.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop" alt="Photoshop">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <h4>Creative Design</h4>
+                                <p>Challenge: Creating a premium brand feel for marketing brochures.<br>Result: Elevated brand identity & increased inquiry rate.</p>
+                                <a href="#" class="project-btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Marketing Brochures</h3>
+                        <p>Visual storytelling and brand asset creation.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070&auto=format&fit=crop" alt="Excel">
+                        <div class="project-overlay">
+                            <div class="project-details">
+                                <h4>System Automation</h4>
+                                <p>Challenge: Time-consuming manual data entry in quotations.<br>Result: 80% time reduction via VBA macros.</p>
+                                <a href="#" class="project-btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Excel Automation</h3>
+                        <p>Streamlining business through custom systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info-card tilt-el">
+                    <div class="info-item copy-email" title="Click to copy">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Me</h4>
+                            <p id="email-text">mavimabilik22@gmail.com</p>
+                            <span class="copy-badge">Click to copy</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Philippines</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Fri, 8AM - 5PM</p>
+                        </div>
+                    </div>
+                    <div class="social-wrapper">
+                        <h4>Connect with me</h4>
+                        <div class="social-links">
+                            <a href="#" class="mag-social"><i class="fab fa-github"></i></a>
+                            <a href="#" class="mag-social"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="mag-social"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form" id="main-form">
+                        <div class="form-group floating">
+                            <input type="text" name="name" id="name" placeholder=" " required>
+                            <label for="name">Your Full Name</label>
+                            <div class="line"></div>
+                        </div>
+                        <div class="form-group floating">
+                            <input type="email" name="email" id="email" placeholder=" " required>
+                            <label for="email">Your Email Address</label>
+                            <div class="line"></div>
+                        </div>
+                        <div class="form-group floating">
+                            <textarea name="message" id="message" placeholder=" " required></textarea>
+                            <label for="message">How can I help you?</label>
+                            <div class="line"></div>
+                        </div>
+                        <button type="submit" class="btn primary submit-btn">
+                            <span class="btn-text">Transmit Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-grid">
+                <div class="modal-image">
+                    <img src="" alt="Project Detail" id="modal-img">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title">Project Title</h2>
+                    <div class="modal-tags" id="modal-tags"></div>
+                    <div class="modal-body">
+                        <h3>The Challenge</h3>
+                        <p id="modal-challenge"></p>
+                        <h3>The Technical Solution</h3>
+                        <p id="modal-solution"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IT Command Terminal (Moved out of sections to fix fixed positioning) -->
+    <div class="terminal-window minimized">
+        <div class="terminal-header">
+            <div class="t-btn red"></div>
+            <div class="t-btn yellow"></div>
+            <div class="t-btn green"></div>
+            <div class="t-title">mavi@it-system:~</div>
+        </div>
+        <div class="terminal-body" id="terminal-output">
+            <div class="t-line">System override successful...</div>
+            <div class="t-line">Type 'help' to see available commands.</div>
+        </div>
+        <div class="terminal-input-line">
+            <span class="t-prompt">mavi@it-system:~$</span>
+            <input type="text" id="terminal-input" autocomplete="off">
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Xivam, All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
