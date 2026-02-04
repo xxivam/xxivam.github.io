@@ -542,7 +542,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const TELEGRAM_TOKEN = '8260349239:AAE-0dqVR-TFPUxGSynC5w1s_2o7Dg_2IJM';
         const CHAT_ID = '5543161340';
 
+        // Detect Device Type
+        const getDevice = () => {
+            const ua = navigator.userAgent;
+            if (/android/i.test(ua)) return "Android Phone";
+            if (/iPhone|iPad|iPod/i.test(ua)) return "iPhone/iOS";
+            if (/windows/i.test(ua)) return "Windows PC";
+            if (/macintosh/i.test(ua)) return "MacBook/Mac";
+            return "Desktop/Other";
+        };
+
         let realCount = "Syncing...";
+        const device = getDevice();
 
         // 1. Get Real Count (Stable API)
         try {
@@ -561,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const geoData = await geoRes.json();
             const location = `${geoData.city}, ${geoData.country_name}`;
 
-            const message = `🚀 *System Alert: New Visitor!*%0A📍 Location: ${location}%0A📈 Total Views: ${realCount}`;
+            const message = `🚀 *System Alert: New Visitor!*%0A📍 Location: ${location}%0A📱 Device: ${device}%0A📈 Total Views: ${realCount}`;
             fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}&parse_mode=Markdown`);
         } catch (e) {
             console.log("Notification Error:", e);
