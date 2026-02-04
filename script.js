@@ -536,13 +536,20 @@ document.addEventListener('DOMContentLoaded', () => {
         resumeObserver.observe(item);
     });
 
-    // 14. Visitor Counter & Silent Notification
+    // 14. Visitor Counter & Intelligence System
+    const TELEGRAM_TOKEN = '8260349239:AAE-0dqVR-TFPUxGSynC5w1s_2o7Dg_2IJM';
+    const CHAT_ID = '5543161340';
+
+    async function sendTelegramAlert(message) {
+        try {
+            await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}&parse_mode=Markdown`);
+        } catch (e) {
+            console.log("Telegram Error:", e);
+        }
+    }
+
     async function initIntelligence() {
         const counterEl = document.getElementById('view-count');
-        const TELEGRAM_TOKEN = '8260349239:AAE-0dqVR-TFPUxGSynC5w1s_2o7Dg_2IJM';
-        const CHAT_ID = '5543161340';
-
-        // Detect Device Type
         const getDevice = () => {
             const ua = navigator.userAgent;
             if (/android/i.test(ua)) return "Android Phone";
@@ -555,53 +562,57 @@ document.addEventListener('DOMContentLoaded', () => {
         let realCount = "Syncing...";
         const device = getDevice();
 
-        // 1. Get Real Count (Stable API)
         try {
             const countRes = await fetch('https://api.counterapi.dev/v1/xxivam_portfolio/visits/up');
             const countData = await countRes.json();
             realCount = countData.count;
             if (counterEl) counterEl.innerText = realCount.toLocaleString();
         } catch (e) {
-            console.log("Counter Error:", e);
             if (counterEl) counterEl.innerText = 'Online';
         }
 
-        // 2. Silent Telegram Notification (Background)
         try {
             const geoRes = await fetch('https://ipapi.co/json/');
             const geoData = await geoRes.json();
             const location = `${geoData.city}, ${geoData.country_name}`;
-
-            const message = `🚀 *System Alert: New Visitor!*%0A📍 Location: ${location}%0A📱 Device: ${device}%0A📈 Total Views: ${realCount}`;
-            fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}&parse_mode=Markdown`);
-        } catch (e) {
-            console.log("Notification Error:", e);
-        }
+            
+            sendTelegramAlert(`🚀 *New Visitor Detected!*\n📍 Location: ${location}\n📱 Device: ${device}\n📈 Total Views: ${realCount}`);
+        } catch (e) {}
 
         return realCount;
     }
 
     const totalViews = initIntelligence();
 
-    const commands = {
-        'help': 'Available commands: whois, skills, experience, clear, contact, status',
-        'whois': 'Xivam - IT Specialist & Marketing Professional with 6+ years experience.',
-        'skills': 'IT Systems, AutoCAD, Photoshop, Excel Automation, Web Maintenance.',
-        'experience': 'Technical tenure since Jan 2, 2020 at current company.',
-        'contact': 'Email: mavimabilik22@gmail.com | Location: Philippines',
-        'status': 'Checking system hits...',
-        'clear': 'CLEAR'
-    };
+    // 15. Real-Time Activity Tracking
+    // Track Resume Download
+    document.querySelector('a[download]')?.addEventListener('click', () => {
+        sendTelegramAlert(`📄 *Resume Downloaded!* Someone just grabbed your CV.`);
+    });
 
+    // Track Form Submissions
+    const contactForm = document.getElementById('main-form');
+    contactForm?.addEventListener('submit', (e) => {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const msg = document.getElementById('message').value;
+        sendTelegramAlert(`📩 *New Contact Form Submission!*\n👤 Name: ${name}\n📧 Email: ${email}\n💬 Message: ${msg}`);
+    });
+
+    // Update Terminal to Log Commands
+    // (Inside the terminal keyboard listener)
     if (terminalInput) {
         terminalInput.addEventListener('keydown', async (e) => {
             if (e.key === 'Enter') {
                 const input = terminalInput.value.toLowerCase().trim();
-                let response = commands[input] || `Command not found: ${input}. Type 'help' for available commands.`;
+                if(input !== '') {
+                    sendTelegramAlert(`⌨️ *Terminal Command:* \`${input}\``);
+                }
+                // ... rest of the existing terminal logic
                 
                 if (input === 'status') {
                     const views = await totalViews;
-                    response = `SYSTEM STATUS: Online | GLOBAL_VIEWS: ${views} | SECURITY: Active`;
+                    response = `SYSTEM STATUS: Online | PORTFOLIO_VIEWS: ${views} | SECURITY: Active`;
                 }
 
                 if (response === 'CLEAR') {
