@@ -536,21 +536,61 @@ document.addEventListener('DOMContentLoaded', () => {
         resumeObserver.observe(item);
     });
 
+    // 14. Visitor Counter & Silent Notification
+    async function initIntelligence() {
+        const counterEl = document.getElementById('view-count');
+        const TELEGRAM_TOKEN = '8260349239:AAE-0dqVR-TFPUxGSynC5w1s_2o7Dg_2IJM';
+        const CHAT_ID = '5543161340';
+
+        try {
+            // 1. Get Location Data (Silent)
+            const geoRes = await fetch('https://ipapi.co/json/');
+            const geoData = await geoRes.json();
+            const location = `${geoData.city}, ${geoData.country_name}`;
+
+            // 2. Increment & Get Real Count
+            const countRes = await fetch('https://api.countapi.xyz/hit/xxivam_portfolio/visits');
+            const countData = await countRes.json();
+            const realCount = countData.value;
+
+            // 3. Update Footer (Real Number)
+            if (counterEl) counterEl.innerText = realCount.toLocaleString();
+
+            // 4. Send Silent Telegram Alert
+            const message = `🚀 *System Alert: New Visitor!*%0A📍 Location: ${location}%0A📈 Total Views: ${realCount}`;
+            fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}&parse_mode=Markdown`);
+
+            return realCount;
+        } catch (e) {
+            console.log("Intelligence system error:", e);
+            if (counterEl) counterEl.innerText = 'Syncing...';
+            return 'Offline';
+        }
+    }
+
+    const totalViews = initIntelligence();
+
     const commands = {
-        'help': 'Available commands: whois, skills, experience, clear, contact',
-        'whois': 'Mavi - IT Specialist & Marketing Professional with 6+ years experience.',
+        'help': 'Available commands: whois, skills, experience, clear, contact, status',
+        'whois': 'Xivam - IT Specialist & Marketing Professional with 6+ years experience.',
         'skills': 'IT Systems, AutoCAD, Photoshop, Excel Automation, Web Maintenance.',
         'experience': 'Technical tenure since Jan 2, 2020 at current company.',
         'contact': 'Email: mavimabilik22@gmail.com | Location: Philippines',
+        'status': 'Checking system hits...',
         'clear': 'CLEAR'
     };
 
     if (terminalInput) {
-        terminalInput.addEventListener('keydown', (e) => {
+        terminalInput.addEventListener('keydown', async (e) => {
             if (e.key === 'Enter') {
                 const input = terminalInput.value.toLowerCase().trim();
-                const response = commands[input] || `Command not found: ${input}. Type 'help' for available commands.`;
+                let response = commands[input] || `Command not found: ${input}. Type 'help' for available commands.`;
                 
+                if (input === 'status') {
+                    const views = await totalViews;
+                    response = `SYSTEM STATUS: Online | GLOBAL_VIEWS: ${views} | SECURITY: Active`;
+                }
+
                 if (response === 'CLEAR') {
                     terminalOutput.innerHTML = '';
                 } else {
